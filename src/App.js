@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Math from './pages/Math';
+import Economics from './pages/Economics';
+import Accounting from './pages/Accounting';
+import BusinessStudies from './pages/BusinessStudies';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/math" element={<Math />} />
+        <Route path="/economics" element={<Economics />} />
+        <Route path="/accounting" element={<Accounting />} />
+        <Route path="/business-studies" element={<BusinessStudies />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;
